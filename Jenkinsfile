@@ -22,13 +22,13 @@ pipeline {
 
         stage("Ansible and YAML Lint") {
             steps {
-				sh '''
-				bash ./scripts/prepare.sh'
-				. $HOME/.bashrc
-				export PATH=$HOME/.local/bin:$PATH
-				yamllint -f colored --no-warnings ${WORKSPACE}
-				ansible-lint --exclude "molecule" --force-color -x 106 ${WORKSPACE}
-				'''
+							sh '''
+							bash ./scripts/prepare.sh
+							. $HOME/.bashrc
+							export PATH=$HOME/.local/bin:$PATH
+							yamllint -f colored --no-warnings ${WORKSPACE}
+							ansible-lint --exclude "molecule" --force-color -x 106 ${WORKSPACE}
+							'''
                 }
         }
 
